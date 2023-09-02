@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jenkins:
+    build:
+      context: .
+    image: my-jenkins-docker
+    ports:
+      - "8082:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./jenkins_home:/var/jenkins_home  # Creat jenkins_home folder in current directory or change the path
+    #environment:
+    #  - DOCKER_HOST=unix:///var/run/docker.sock  # Указываем Docker API для Jenkins
